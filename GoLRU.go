@@ -20,8 +20,8 @@ func New(s int) *LRU {
 	}
 }
 
-// Get oldest key
-func (lm *LRU) Oldest() (key interface{}, found bool) {
+// Get newest key
+func (lm *LRU) Newest() (key interface{}, found bool) {
 	if lm.cache.Size() == 0 {
 		return nil, false
 	}
@@ -30,8 +30,8 @@ func (lm *LRU) Oldest() (key interface{}, found bool) {
 	return iterator.Key(), true
 }
 
-// Get newest key
-func (lm *LRU) Newest() (key interface{}, found bool) {
+// Get oldest key
+func (lm *LRU) Oldest() (key interface{}, found bool) {
 	if lm.cache.Size() == 0 {
 		return nil, false
 	}
