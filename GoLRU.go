@@ -1,8 +1,10 @@
 package GoLRU
 
 import (
+	"fmt"
 	"github.com/emirpasic/gods/maps/linkedhashmap"
 	_ "github.com/emirpasic/gods/utils"
+	"strings"
 )
 
 
@@ -98,7 +100,12 @@ func (lm *LRU) Clear() {
 
 // String returns a string representation of container
 func (lm *LRU) String() string {
-	return lm.cache.String()
+	str := "LRU["
+	it := lm.cache.Iterator()
+	for it.Next() {
+		str += fmt.Sprintf("%v:%v ", it.Key(), it.Value())
+	}
+	return strings.TrimRight(str, " ") + "]"
 }
 
 // Return Iterator
