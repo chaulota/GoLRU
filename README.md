@@ -1,5 +1,5 @@
 # GoLRU
- A constant time LRU cache written in Go
+ A basic LRU cache written in Go
 
 ```go
 package main
